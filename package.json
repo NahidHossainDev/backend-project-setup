@@ -5,9 +5,9 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc --watch",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts",
+    "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint . --fix",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
@@ -15,7 +15,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "src/**/*.ts": "yarn lint-preettier"
+    "src/**/*.ts": "yarn lint-prettier"
   },
   "author": "Md Nahid Hossain",
   "license": "MIT",
@@ -23,17 +23,23 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongoose": "^8.3.3"
+    "mongoose": "^8.3.3",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin": "^1.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
     "@types/cors": "^2.8.17",
+    "prettier": "^2.8.8",
     "@types/express": "^4.17.21",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
-    "eslint": "^9.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.5"
   }
