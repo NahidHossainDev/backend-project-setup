@@ -2,6 +2,7 @@ import cors from 'cors';
 import express, { Application, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { globalErrorHandler } from './app/middlewares/globalError';
+import appRouter from './app/routes';
 
 const app: Application = express();
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // applicaton router
+app.use('/api/v1', appRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
